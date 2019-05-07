@@ -1,0 +1,7 @@
+p {
+  font-family: Lato;
+}
+.ngTemplateSection{background:rgb(191, 228, 252); border:1px solid lightgoldenrodyellow;}
+.oldPeople{ background: blue ; color:#fff; padding:1%;}
+.youngPeople{ background: lightblue; padding:1%;}
+.warningStatement { color:red; background:yellow; }

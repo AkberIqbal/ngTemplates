@@ -1,0 +1,36 @@
+<hello name="{{ name }}"></hello>
+<ul>
+	Will aim to learn to see the difference between:
+	<li> <code> ng-template </code> </li>
+  <li> <code> ng-content </code> </li>
+  <li> <code> ng-container </code> </li>
+</ul>
+
+<h3>ng-template</h3>
+<input type="checkbox" [(ngModel)]="showNgTemplate" /> {{showNgTemplate}} <br/>
+<div class='ngTemplateSection'>
+  <p>method #1</p>
+  <ng-template [ngIf]="showNgTemplate" [ngIfElse]="notVisible"> [Visible]: we got showNgTemplate: {{showNgTemplate}}</ng-template>
+</div>
+<div class='ngTemplateSection'>
+  <p>method #2</p>
+  <ng-template *ngIf='showNgTemplate then showStatement else notVisible'>
+    <!-- The following 3 statements are not rendered !!! -->
+    <p> Value of checkbox is : {{showNgTemplate}} -- not rendered </p> 
+    <ng-template> Value of checkbox is : {{showNgTemplate}} -- not rendered </ng-template> 
+    <ng-template #showStatement> Value of checkbox is : {{showNgTemplate}} -- not rendered </ng-template> 
+  </ng-template>
+</div>
+<div class='ngTemplateSection'>
+  <p>method #1 (for)</p>
+  <div *ngFor='let fM of someObject'>
+      <ng-template [ngIf]='fM.age > 18'>  <div class='oldPeople'> {{fM.name}} & {{fM.age}} </div> </ng-template>
+      <ng-template [ngIf]='fM.age < 18'> <div class='youngPeople'> {{fM.name}} & {{fM.age}}  </div> </ng-template>
+  </div>
+</div>
+
+
+<ng-template #showStatement> [Visible]: Value of checkbox is : {{showNgTemplate}}  </ng-template> 
+<ng-template #notVisible>
+    <div class='warningStatement'>nothing to display...</div>
+</ng-template>

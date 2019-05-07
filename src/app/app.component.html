@@ -9,11 +9,11 @@
 <h3>ng-template</h3>
 <input type="checkbox" [(ngModel)]="showNgTemplate" /> {{showNgTemplate}} <br/>
 <div class='ngTemplateSection'>
-  <p>method #1</p>
+  <h4>method #1</h4>
   <ng-template [ngIf]="showNgTemplate" [ngIfElse]="notVisible"> [Visible]: we got showNgTemplate: {{showNgTemplate}}</ng-template>
 </div>
 <div class='ngTemplateSection'>
-  <p>method #2</p>
+  <h4>method #2</h4>
   <ng-template *ngIf='showNgTemplate then showStatement else notVisible'>
     <!-- The following 3 statements are not rendered !!! -->
     <p> Value of checkbox is : {{showNgTemplate}} -- not rendered </p> 
@@ -22,15 +22,28 @@
   </ng-template>
 </div>
 <div class='ngTemplateSection'>
-  <p>method #1 (for)</p>
+  <h4>method #1 (with for)</h4>
   <div *ngFor='let fM of someObject'>
       <ng-template [ngIf]='fM.age > 18'>  <div class='oldPeople'> {{fM.name}} & {{fM.age}} </div> </ng-template>
       <ng-template [ngIf]='fM.age < 18'> <div class='youngPeople'> {{fM.name}} & {{fM.age}}  </div> </ng-template>
   </div>
 </div>
 
-
 <ng-template #showStatement> [Visible]: Value of checkbox is : {{showNgTemplate}}  </ng-template> 
 <ng-template #notVisible>
     <div class='warningStatement'>nothing to display...</div>
 </ng-template>
+
+<hr />
+<h3>ng-content</h3>
+<p> HTML inside the <code> < project-content> </code> will be projected to where there is <code> < ng-content> </code>; This is called Content Projection.
+</p>
+<div class='heading'> Heading:  <ng-content select='h2'>    </ng-content> <div>
+<div class='body'>    Body:     <ng-content select='p'>     </ng-content> <div>
+<div class='footer'>  Footer:   <ng-content select='span'>  </ng-content> <div>
+
+  <ng-container>
+  <h2> This is the heading for ng-content </h2>
+  <p> This is the body for ng-content </p>
+  <span> This is the footer for ng-content </span>
+  </ng-container>

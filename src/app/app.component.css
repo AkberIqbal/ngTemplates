@@ -1,7 +1,14 @@
 p {
   font-family: Lato;
 }
-.ngTemplateSection{background:rgb(191, 228, 252); border:1px solid lightgoldenrodyellow;}
+/* ngTemplate section */
+.ngTemplateSection{background:rgb(191, 228, 252); border:1px solid lightgoldenrodyellow; padding:0 2%}
+.ngTemplateSection *:not(h4){padding-left:5%}
 .oldPeople{ background: blue ; color:#fff; padding:1%;}
 .youngPeople{ background: lightblue; padding:1%;}
 .warningStatement { color:red; background:yellow; }
+
+/* ngContent section */
+.heading{color:red;}
+.body{color:rgb(236, 114, 114)}
+.footer{color:lightpink;}
